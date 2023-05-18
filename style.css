@@ -1,88 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
 
-.left {
-    
+body {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 80%;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+#input-box {
+    background-color: #000000;
+}
+
+input, input:focus {
+    width: 80%;
+    font-family: 'Source Code Pro', monospace; 
+    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    outline: none;
+}
+
+.dollar {
+    color: #279100;
 }
 
 .title {
-    font-size: 500%;
-}
-
-.titleDiv {
-    background-color: #144272; 
-    padding: 5%; 
-    color: white;
-}
-
-body {
-    font-family: 'Fira Sans', sans-serif;
-}
-
-#name {
-    font-size: 400%;
-}
-
-.navbar-item, .navbar-item:link, .navbar-item:visited {
-    font-size: 120%;
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.container {
-    transition: all 1s;
-}
-
-.hide {
-    opacity: 0;
-}
-
-.show {
-    opacity: 1;
-}
-
-#photo {
-    width: 380px;
-    border-radius: 50px;
-}
-
-.align {
-    float: left;
-    clear: none;
-}
-
-#description {
-    display: table-cell;
-    vertical-align: middle;
-    border-radius: 25px;
-    height: 380px;
-    padding: 5%;
-}
-
-#navbar {
-    color: white;
-    padding: 25px;
-}
-
-.logo {
-    border-radius: 25px;
-    width: 100px;
-}
-
-#info {
-    font-size: 100%;
-}
-
-.contact-logo {
-    font-size: 200%;
-}
-
-a:link, a:visited {
-    color: black;
-    text-decoration: none;
-}
-
-i {
-    font-size: 330%;
+    background-color: #279100;
+    color: #FFFFFF;
 }
