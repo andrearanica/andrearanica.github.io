@@ -3,20 +3,20 @@
 body {
     font-family: 'Source Code Pro', monospace;
     font-size: 80%;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 #input-box {
-    background-color: #000000;
+    background-color: #FFFFFF;
 }
 
 input, input:focus {
     width: 80%;
     font-family: 'Source Code Pro', monospace; 
     border: none;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #000000;
+    color: #FFFFFF;
     outline: none;
 }
 
@@ -27,4 +27,21 @@ input, input:focus {
 .title {
     background-color: #279100;
     color: #FFFFFF;
+}
+
+.full-star {
+    color: yellow;
+}
+
+a {
+    color: #FFFFFF;
+}
+
+i {
+    font-size: 150%;
+}
+
+.title-red {
+    font-size: 120%;
+    background-color: red;
 }
