@@ -4,12 +4,10 @@ let previous = document.getElementById('previous')
 let header = document.getElementById('header')
 
 const school = `
-&nbsp;<b class='title'>ITIS Paleocapa</b> | Computer science (2018-now)<br>
+<b class='title'>ITIS Paleocapa</b> | Computer science (2018-now)<br>
 &nbsp;I am currently studying CS at ITIS Paleocapa, in Bergamo. I'm attending the 5th year.<br>
 &nbsp;During these years I learned a lot about both computer science and life, thanks to my<br>
 &nbsp;teachers and my mates. <br>
-&nbsp;<b class='title'>Milano-Bicocca University</b> | Computer science (2023-...)<br>
-&nbsp;Coming soon...<br>
 `
 
 const skills = `
@@ -36,6 +34,7 @@ GNU bash, version 5.1.4(1)-release (x86_64-pc-linux-gnu)<br>
 &nbsp;&nbsp;summary&nbsp;&nbsp;&nbsp;&nbsp;See all my learning experiences<br>
 &nbsp;&nbsp;skills&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See all my skills<br>
 &nbsp;&nbsp;school&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See all my learning experiences<br>
+&nbsp;&nbsp;cls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clean the screen<br>
 `
 
 document.getElementById('input-form').addEventListener('submit', (e) => {
