@@ -45,3 +45,7 @@ i {
     font-size: 120%;
     background-color: red;
 }
+
+.row {
+    margin-top: 10px;
+}
