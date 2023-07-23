@@ -9,6 +9,7 @@ body {
 
 #input-box {
     background-color: #FFFFFF;
+    width: 100%;
 }
 
 input, input:focus {
@@ -42,7 +43,7 @@ i {
 }
 
 .title-red {
-    font-size: 120%;
+    /* font-size: 120%; */
     background-color: red;
 }
 
