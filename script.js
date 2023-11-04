@@ -5,8 +5,16 @@ let header = document.getElementById('header')
 
 const help = `
 GNU bash, version 5.1.4(1)-release (x86_64-pc-linux-gnu)<br>
-&nbsp;&nbsp;summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Who am I?<br>
-&nbsp;&nbsp;skills&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See all my skills<br>
+&nbsp;&nbsp;summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Info about me<br>
+&nbsp;&nbsp;cls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clear the screen<br>
+&nbsp;&nbsp;contacts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How to contact me<br>
+`
+
+const contacts = `
+If you want to know more about me or to contact me, use the buttons below. A presto 💪🏻<br><br>
+<a href="https://github.com/andrearanica"><img src="https://skillicons.dev/icons?i=github" /></a>
+<a href="https://linkedin.com/in/andrearanica"><img src="https://skillicons.dev/icons?i=linkedin" /></a>
+<a href="https://linkedin.com/in/andrearanica"><img src="https://skillicons.dev/icons?i=gmail" /></a>
 `
 
 const summary = `
@@ -23,10 +31,8 @@ I'm working as a Software developer @ DDX Software Solutions</li><br>
 <img src="https://skillicons.dev/icons?i=bootstrap,react,express,laravel" /><br>
 <img src="https://skillicons.dev/icons?i=linux,vscode,github,gitlab,postman" />
 <br>
-<h3>Connect with me 👋🏻</h3>
-If you want to know more about me or to contact me, use the buttons below. A presto 💪🏻<br><br>
-<a href="https://github.com/andrearanica"><img src="https://skillicons.dev/icons?i=github" /></a>
-<a href="https://linkedin.com/in/andrearanica"><img src="https://skillicons.dev/icons?i=linkedin" /></a>
+<h3 style='color: orange'>Connect with me 👋🏻</h3>
+${contacts}
 <br><br>
 </div>
 </center>`
@@ -43,6 +49,9 @@ document.getElementById('input-form').addEventListener('submit', (e) => {
         case 'summary':
             response = summary
             break   
+        case 'contacts':
+            response = contacts
+            break
         case 'cls':
             previous.innerHTML = ''
             break
