@@ -5,8 +5,8 @@ let header = document.getElementById('header')
 
 const help = `
 GNU bash, version 5.1.4(1)-release (x86_64-pc-linux-gnu)<br>
-&nbsp;&nbsp;resumee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My CV with all my experiences<br>
-&nbsp;&nbsp;education&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;School and University experience<br>
+&nbsp;&nbsp;resumee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Info about me and what I do<br>
+&nbsp;&nbsp;projects&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The projects I worked on<br>
 &nbsp;&nbsp;clear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clear the screen<br>
 `
 
@@ -25,7 +25,7 @@ I'm working as a CAD/CAM Software developer @ DDX Software Solutions</li><br>
 <img src="https://skillicons.dev/icons?i=linux,vscode,github,gitlab,postman" />
 <br>
 <h3 style='color: orange'>Connect with me 👋🏻</h3>
-If you want to know more about me or to contact me, use the buttons below. A presto 💪🏻<br><br>
+If you want to contact me, use the buttons below... I'll respond you as soon as possible 💪🏻<br><br>
 <a href="https://github.com/andrearanica"><img src="https://skillicons.dev/icons?i=github" /></a>
 <a href="https://linkedin.com/in/andrearanica"><img src="https://skillicons.dev/icons?i=linkedin" /></a>
 <a href="https://linkedin.com/in/andrearanica"><img src="https://skillicons.dev/icons?i=gmail" /></a>
@@ -33,30 +33,15 @@ If you want to know more about me or to contact me, use the buttons below. A pre
 </div>
 </center>`
 
-const education = `
+const projects = `
 <center>
-<div style="font-size: 120%;">
-<h2 style='color: orange'>📚 Education</h2>
-<h3>High school</h3>
-<img src="paleocapa.png" class="paleocapa">
-<p>I studied Computer Science @ ITIS Pietro Paleocapa, in Bergamo (2018-2023)</p>
-<p>In 5 years I learned all the basics concepts I needed to become a Junior Software Developer, like OOP and Web development, <br>and some Software designing concepts like UML and ER diagrams, project management basics ecc...</p>
-<p>Some of the projects I made during these years are the following</p>
-    <center>
-        <a href="https://github.com/andrearanica/Cercatore-Di-Funghi"><button class="btn">🍄</button></a>
-        <a href="https://github.com/andrearanica/lancio-dadi"><button class="btn">🎲</button></a>
-        <a href="https://github.com/andrearanica/PiantApp"><button class="btn">🌵</button></a>
-        <a href="https://github.com/andrearanica/blockchain"><button class="btn">🪙</button></a>
-        <a href="https://github.com/andrearanica/movimentazione-manuale"><button class="btn">👷</button></a>    
-        <a href="https://github.com/andrearanica/fotoregistro"><button class="btn">📷</button></a> 
-    </center>
-<br><br>
-<h3>University</h3>
-<img src="unimib.png" class="paleocapa">
-<p>I'm studying Computer Science @ University of Milano-Bicocca (2023-)</p>
-<p><u>Courses I'm attending</u>: Analisi I, Fondamenti di Informatica, Programmazione I</p>
-</div>
-</center>`
+<div style="font-size: 120%">
+<h2 style="color: orange">Projects</h2>
+Here there are some of the projects I made during the last years to learn some of the key topics of computer science    
+<li><a href="https://github.com/andrearanica/piantapp">PiantApp</a>: a social media made with sockets with client/server architecture</li>
+<li><a href="https://github.com/andrearanica/blockchain">Blockchain</a>: a simulator of the blockchain technology made in JavaScript</li>
+<li><a href="https://github.com/andrearanica/fotoregistro">Fotoregistro</a>: a web application for teachers and students</li>
+</div></center><br>`
 
 previous.innerHTML += `<a class='dollar'>user@andrearanica:~$</a> help<br>${ help }<br>`
 
@@ -70,8 +55,8 @@ document.getElementById('input-form').addEventListener('submit', (e) => {
         case 'resumee':
             response = summary
             break
-        case 'education':
-            response = education
+        case 'projects':
+            response = projects
             break   
         case 'clear':
             previous.innerHTML = ''
