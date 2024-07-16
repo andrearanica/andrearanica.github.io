@@ -3,44 +3,56 @@ let inputForm = document.getElementById('input-form')
 let response = ''
 let previous = document.getElementById('previous')
 let header = document.getElementById('header')
+let body = document.getElementById('body')
+let title = document.getElementById('title')
+let upperPage = document.getElementById('upper-page')
 
-const help = `
-GNU bash, version 5.1.4(1)-release (x86_64-pc-linux-gnu)<br>
-&nbsp;&nbsp;resumee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Info about me and what I do<br>
-&nbsp;&nbsp;projects&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The projects I worked on<br>
-&nbsp;&nbsp;clear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clear the screen<br>
-`
+const SUBTITLES = [
+    "I'm a Software Developer @ DDX Software Solutions",
+    "I study Computer Science @ University of Milano-Bicocca",
+    "In my free time I enjoy going to the gym, play videogames and biking",
+    "Write help to continue..."
+]
 
 inputForm.addEventListener('submit', e => {
     e.preventDefault()
-    command = inputCommand.value
-    switch (command) {
-        case 'help':
-            writeHelp()
-            break
-        default:
-            writeError(command)
-            break
-    }
+    previous.innerHTML += '<br>'
     writeInputLine()
+    command = inputCommand.value
+    switch(command) {
+        case 'clear':
+            previous.innerHTML = ''
+            break;
+        default:
+            previous.innerHTML += `<br>bash: ${command}: command not found`
+    }
+
     inputCommand.value = ''
 })
 
-const writeMain = async () => {
+body.onload = async e => {
+    e.preventDefault()
     let title = `I'm Andrea, a Software Developer & Computer Science student`
     writeTitle(title)
-    let work = `I work as a Software Developer @ DDX Software Solutions`
-    let university = `I'm studying Computer Science @ University of Milano-Bicocca`
-    await write(work)
-    await write(university)
+    
+    let i = 0
+    setInterval(() => {
+        if (i < SUBTITLES.length) {
+            write(SUBTITLES[i], upperPage)
+            i++
+        } else {
+            clearInterval(timer)
+        }
+    }, 2000)
+
+    for(i = 0; i < SUBTITLES.length; i++) {
+        write(SUBTITLES[i], upperPage)
+        await new Promise(r => setTimeout(r, 5000))
+    }
 }
 
 const writeTitle = text => {
-    previous.innerHTML += `<h2 style='color: orange; text-align: center; font-size: 200%;'>${text}</h2>`
-}
-
-const writeSubtitle = text => {
-    previous.innerHTML += `<h2 style='color: orange; text-align: center;'>${text}</h2>`
+    title.innerHTML += `<h2 style='color: orange; text-align: center; font-size: 200%;'>${text}</h2>`
 }
 
 const writeHelp = async () => {
@@ -53,22 +65,23 @@ const writeError = async (wrongCommand) => {
     await write(errorMessage)
 }
 
-const write = async (message) => {
+const write = async (message, element=previous) => {
+    /** Writes the message inside the passed element of the DOM 
+     */
     i = 0
-    clearInterval()
-    setInterval(() => {
-        if (i < message.length) {
-            previous.innerHTML += message.charAt(i)
-            i++
-        } else {
-            clearInterval()
-        } 
-    }, 10)
-    previous.innerHTML += '<br>'
+    while (i < message.length) {
+        element.innerHTML += message.charAt(i)
+        i++
+        await new Promise(r => setTimeout(r, 10))
+    }
+    
+    while (i >= 0) {
+        element.innerHTML = message.substring(0, i)
+        i--
+        await new Promise(r => setTimeout(r, 10))
+    }
 }
 
 const writeInputLine = () => {
-    previous.innerHTML += `<a class='dollar'>user@andrearanica:~$</a> ${ inputCommand.value }<br></br>`
+    previous.innerHTML += `<br><a class='dollar'>user@andrearanica:~$</a> ${ inputCommand ? inputCommand.value : '' }<br>`
 }
-
-writeMain()
