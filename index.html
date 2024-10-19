@@ -9,23 +9,25 @@
         <title>Andrea Ranica | Portfolio</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     </head>
-    <body id="body">
-        <!-- this div contais the previous commands and answers -->
-        <center>
-            <div id="title"></div>
-            <div id="upper-page"></div>
-        </center>
-        <div id='previous'>
+    <body id="body" onload="loadBody()">
+        <div id="terminal">
+            <div id="terminal-top-bar">
+                andre@THIS-PC: ~
+            </div>
+            
+            <div id='commands'>
+                <div id='previous'>
 
+                </div>
+                <div id='inpux-box'>
+                    <form id='input-form'>
+                        <a class='dollar'>user@andrearanica:~$</a> <input id='input-command'>
+                    </form>
+                    <p id='response'></p>
+                </div>
+            </div>
         </div>
-        <div id='inpux-box'>
-            <form id='input-form'>
-                <br>
-                <a class='dollar'>user@andrearanica:~$</a> <input id='input-command'>
-            </form>
-            <p id='response'></p>
-        </div>
-
+        
         <script src='script.js'></script>
     </body>
 </html>

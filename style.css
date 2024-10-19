@@ -1,18 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
 
 body {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 80%;
-    background-color: #ffffe6;
-    color: #000000;
+    background-image: url('wallpaper.svg');
 }
 
-#input-box {
-    background-color: #ffffe6;
-    width: 100%;
+#terminal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 100%;
+    background-color: #FFFF;
+    color: black;
+    margin: auto;
+    width: 70%;
+    height: 60%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#terminal-top-bar {
+    text-align: center;
+    background-color: lightgrey;
+    color: black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 45px;
+    border: 0px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 50;
+}
+
+#commands {
+    padding: 10px;
+    overflow-y: scroll;
+    height: 80%;
 }
 
 input, input:focus {
+    font-family: 'Source Code Pro', monospace; 
+    font-size: 100%;
+    border: none;
+    background-color: white;
+    color: black;
+    outline: none;
+}
+
+.command-line-light {
     width: 80%;
     font-family: 'Source Code Pro', monospace; 
     border: none;
@@ -35,23 +74,6 @@ a {
 
 i {
     font-size: 150%;
-}
-
-.title-red {
-    /* font-size: 120%; */
-    background-color: red;
-}
-
-.row {
-    margin-top: 10px;
-}
-
-img {
-    height: 50px;
-}
-
-.paleocapa {
-    height: 70px;
 }
 
 .btn {
