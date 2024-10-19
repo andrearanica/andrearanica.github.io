@@ -1,78 +1,88 @@
-let input = document.getElementById('input')
+let inputCommand = document.getElementById('input-command')
+let inputForm = document.getElementById('input-form')
 let response = ''
 let previous = document.getElementById('previous')
 let header = document.getElementById('header')
+let body = document.getElementById('body')
+let title = document.getElementById('title')
+let subtitle = document.getElementById('subtitle')
+let upperPage = document.getElementById('upper-page')
+let commandsDiv = document.getElementById('commands')
 
-const help = `
-GNU bash, version 5.1.4(1)-release (x86_64-pc-linux-gnu)<br>
-&nbsp;&nbsp;resumee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Info about me and what I do<br>
-&nbsp;&nbsp;projects&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The projects I worked on<br>
-&nbsp;&nbsp;clear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clear the screen<br>
+const SUBTITLES = [
+    "I'm a Software Developer @ DDX Software Solutions",
+    "I study Computer Science @ University of Milano-Bicocca",
+    "In my free time I enjoy going to the gym, play videogames and biking",
+    "Write help to continue..."
+]
+
+const PRESENTATION = `
+<center>
+<h2 class='dollar'>Welcome on my portfolio!</h2>
+I'm Andrea, I'm 19yo and I live in Bergamo 👋🏻<br><br>
+I study <a class='dollar'>computer science</a> @ University of Milano-Bicocca, I'm currently at the second year of the <a class='dollar'>Bachelor's degree</a><br>
+I work as a <a class='dollar'>software developer</a> @ DDX Software Solutions, where I develop <a class='dollar'>CAD/CAM plugins</a> in Python<br><br>
+In my free time I like <a class='dollar'>coding</a> my projects, going to the <a class='dollar'>gym</a> and <a class='dollar'>biking</a>!<br><br>
+If you want to learn more about me, type the 'help' command down here
+<br><br></center>
 `
 
-const summary = `
+const HELP = `
+GNU bash, versione 5.2.15(1)-release (x86_64-pc-linux-gnu)<br>
+&nbsp experience &nbsp&nbsp&nbsp&nbsp My study and working experiences<br>
+&nbsp projects &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Some of the projects I worked on<br>
+&nbsp contacts &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Reach me with my social medias
+`
+
+const EXPERIENCE = `
 <center>
-<div style="font-size: 120%;">
-<h2 style='color: orange'>Welcome on my website! I'm Andrea, a Junior Software Developer</h2>
-I'm a Junior Software developer who wants to learn more every single day. I love improving my skills in computer science and programming.<br>
-In my free time, I like going to the gym 🏋🏻, play videogames 🕹️ and improve myself 🚀<br>
-<h3 style='color: orange'>What am I doing? 👀</h3>
-I'm studying Computer Science @ University of Milano-Bicocca (currently first year)</li><br>
-I'm working as a CAD/CAM Software developer @ DDX Software Solutions</li><br>
-<h3 style='color: orange'>My skills ✨</h3>
-<img src="https://skillicons.dev/icons?i=python,cs,cpp,javascript,nodejs,php,mysql,mongodb,bash," /><br>
-<img src="https://skillicons.dev/icons?i=bootstrap,react,express,laravel" /><br>
-<img src="https://skillicons.dev/icons?i=linux,vscode,github,gitlab,postman" />
-<br>
-<h3 style='color: orange'>Connect with me 👋🏻</h3>
-If you want to contact me, use the buttons below... I'll respond you as soon as possible 💪🏻<br><br>
-<a href="https://github.com/andrearanica"><img src="https://skillicons.dev/icons?i=github" /></a>
-<a href="https://linkedin.com/in/andrearanica"><img src="https://skillicons.dev/icons?i=linkedin" /></a>
-<a href="https://linkedin.com/in/andrearanica"><img src="https://skillicons.dev/icons?i=gmail" /></a>
-<br><br>
-</div>
-</center>`
+<h2 class='dollar'>My experiences</h2>
+I studied <a class='dollar'>computer science</a> at the Pietro Paleocapa high school in Bergamo<br><br>
+Since I loved the topics I studied during those 5 years, I decided to continue studying computer study<br>
+In fact, I'm currently studying for my <a class='dollar'>Bachelor's degree</a> in computer science @ University of Milano-Bicocca<br><br>
+Since 2023, I work @ DDX Software Solutions as a <a class='dollar'>software developer</a>: I maily develop <a class='dollar'>CAD/CAM plugins</a> using Python, to automate the creation of CAD/CAM projects and customize the customer experience<br><br>
+Thanks to these experiences, I learned to work with different tools and programming languages like the following<br><br>
 
-const projects = `
-<center>
-<div style="font-size: 120%">
-<h2 style="color: orange">Projects</h2>
-Here there are some of the projects I made during the last years to learn some of the key topics of computer science    
-<li><a href="https://github.com/andrearanica/piantapp">PiantApp</a>: a social media made with sockets with client/server architecture</li>
-<li><a href="https://github.com/andrearanica/blockchain">Blockchain</a>: a simulator of the blockchain technology made in JavaScript</li>
-<li><a href="https://github.com/andrearanica/fotoregistro">Fotoregistro</a>: a web application for teachers and students</li>
-</div></center><br>`
+<img src="https://skillicons.dev/icons?i=python,cs,cpp,javascript,nodejs,php,mysql,mongodb,bash,bootstrap,react,express,laravel,linux,vscode,github,gitlab,postman&perline=9" />
+</center>
+`
 
-previous.innerHTML += `<a class='dollar'>user@andrearanica:~$</a> help<br>${ help }<br>`
+const PROJECTS = `
+Work in progress...
+`
 
-document.getElementById('input-form').addEventListener('submit', (e) => {
-    e.preventDefault()
-    response = ''
-    switch (input.value) {
-        case 'help': 
-            response = help
-            break;
-        case 'resumee':
-            response = summary
-            break
-        case 'projects':
-            response = projects
-            break   
+const loadBody = () => {
+    previous.innerHTML = PRESENTATION
+}
+
+inputForm.addEventListener('submit', e => {
+    e.preventDefault();
+    writeInputLine();
+    command = inputCommand.value;
+    switch(command) {
         case 'clear':
-            previous.innerHTML = ''
-            break
-        case 'ls':
-            response = `
-            index.html&nbsp;&nbsp;&nbsp;script.js&nbsp;&nbsp;&nbsp;style.css<br>
-            `
-            break
-        default: 
-            response = `bash: ${ input.value }: command not found<br>`
-            break
+            previous.innerHTML = '';
+            break;
+        case 'help':
+            previous.innerHTML += HELP;
+            break;
+        case 'experience':
+            previous.innerHTML = EXPERIENCE
+            break;
+        case 'projects':
+            previous.innerHTML += PROJECTS
+            break;
+        default:
+            previous.innerHTML += `bash: ${command}: command not found`
+            break;
     }
-    if (input.value !== 'clear') { 
-        previous.innerHTML += `<a class='dollar'>user@andrearanica:~$</a> ${ input.value }<br>${response}`
+    if (command != 'clear') {
+        previous.innerHTML += '<br>'
     }
-    input.value = ''
-    window.scrollTo(0, document.body.scrollHeight)
+    
+    inputCommand.value = ''
 })
+
+const writeInputLine = () => {
+    previous.innerHTML += `<a class='dollar'>user@andrearanica:~$</a> ${ inputCommand ? inputCommand.value : '' }<br>`
+}
