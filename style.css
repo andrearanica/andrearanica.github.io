@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap');
 
 body {
-    background-image: url('wallpaper.svg');
+    background-image: url('img/wallpaper.svg');
 }
 
 #terminal {
@@ -15,7 +15,7 @@ body {
     color: black;
     margin: auto;
     width: 70%;
-    height: 60%;
+    height: 80%;
     align-items: center;
     justify-content: center;
     border-radius: 25px;
@@ -39,7 +39,7 @@ body {
 #commands {
     padding: 10px;
     overflow-y: scroll;
-    height: 80%;
+    height: 85%;
 }
 
 input, input:focus {
@@ -64,26 +64,11 @@ input, input:focus {
     color: orange;
 }
 
-.full-star {
-    color: yellow;
+.project-image {
+    width: 40%;
 }
 
-a {
-    color: #000000;
-}
-
-i {
-    font-size: 150%;
-}
-
-.btn {
-    border: 2px solid white;
-    background-color: black;
-    border-radius: 12px;
-    font-size: 170%;
-    padding: 12px;
-}
-
-#upper-page {
-    font-size: 120%;
+.about-me-image {
+    width: 80%;
+    border-radius: 25px;
 }

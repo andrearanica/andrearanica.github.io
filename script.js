@@ -1,6 +1,5 @@
 let inputCommand = document.getElementById('input-command')
 let inputForm = document.getElementById('input-form')
-let response = ''
 let previous = document.getElementById('previous')
 let header = document.getElementById('header')
 let body = document.getElementById('body')
@@ -28,13 +27,37 @@ If you want to learn more about me, type the 'help' command down here
 `
 
 const HELP = `
-GNU bash, versione 5.2.15(1)-release (x86_64-pc-linux-gnu)<br>
-&nbsp experience &nbsp&nbsp&nbsp&nbsp My study and working experiences<br>
+GNU bash, version 5.2.15(1)-release (x86_64-pc-linux-gnu)<br>
+&nbsp about-me &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp A quick presentation of myself<br>
+&nbsp experiences &nbsp&nbsp&nbsp My study and working experiences<br>
 &nbsp projects &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Some of the projects I worked on<br>
-&nbsp contacts &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Reach me with my social medias
 `
 
-const EXPERIENCE = `
+const ABOUT_ME = `
+<center>
+<div style='display: flex'>
+    <div id='left' style='float: left;'>
+        <img class='about-me-image' src='img/mola-mia.jpg' />
+    </div>
+    <div id='right' style='float: left;'>
+        <h2 class='dollar'>About me</h2>    
+        Welcome on my webiste! I'm Andrea, I'm 19yo and I live in Bergamo (Italy)<br>
+        I'm a computer science enthusiast: I started coding at 13yo, starting with Scratch and learning in the next years different programming languages and tools.<br><br>
+
+        After the middle schools, I decided to go to a computer science high school, where I started to learn coding by myself: from Python to Visual Basic .NET, passing for
+        simple video games with Construct and web development with React and Node; I was excited about what I could create with coding!<br><br>
+
+        In my free time, I like going to the gym and biking: in the gym I like the feeling to constantly improving my skills (like with coding), while biking makes me enjoying
+        the best places here in Bergamo.<br><br>
+
+        My goal is to learn always more about computer science, both in the theoretical side and in the practical side<br><br>
+    </div>
+</div>
+
+</center>
+`
+
+const EXPERIENCES = `
 <center>
 <h2 class='dollar'>My experiences</h2>
 I studied <a class='dollar'>computer science</a> at the Pietro Paleocapa high school in Bergamo<br><br>
@@ -48,7 +71,25 @@ Thanks to these experiences, I learned to work with different tools and programm
 `
 
 const PROJECTS = `
-Work in progress...
+<center>
+<h2 class='dollar'>Projects</h2>
+In my free time, I like to work on some projects that can help me to improve with my CS skills
+<h3><a class='dollar' target='_blank' href='https://github.com/andrearanica/mips-simulator'>MIPS Simulator</a></h3>
+This is the project I'm currently working on: it is a Python software that simulates the MIPS32 architecture executing assembly files.<br>
+To build this software I used what I learned during the "Computer architecture" course at university, in fact I tried to replicate the processor components 
+and phases as realistic as I could. <br><br>
+<img class='project-image' src='img/mips-simulator.png' /><br><br>
+
+<h3><a class='dollar' target='_blank' href='https://github.com/andrearanica/fotoregistro'>Fotoregistro</a></h3>
+During the last year of high school I developed a web application that aimed to collect students' photos<br>
+to allow teachers to create the photo registers of their classes.<br><br>
+<img class='project-image' src='img/fotoregistro.png' /><br><br>
+
+<h3><a class='dollar' target='_blank' href='https://github.com/andrearanica/blockchain'>Blockchain simulator</a></h3>
+One of my favourite school projecs was a web application made completely in JavaScript that simulated a simple blockchain mining process<br>
+Every user could mine blocks and earn coins to grow the chain; building this project I explored the blockchain world and I could understand how they work<br><br>
+<img src="https://skillicons.dev/icons?i=react,nodejs,mongodb" />
+</center>
 `
 
 const loadBody = () => {
@@ -65,17 +106,23 @@ inputForm.addEventListener('submit', e => {
             break;
         case 'help':
             previous.innerHTML += HELP;
+            commandsDiv.scrollTop = commandsDiv.scrollHeight
             break;
-        case 'experience':
-            previous.innerHTML = EXPERIENCE
+        case 'about-me':
+            previous.innerHTML = ABOUT_ME;
+            break;
+        case 'experiences':
+            previous.innerHTML = EXPERIENCES;
             break;
         case 'projects':
-            previous.innerHTML += PROJECTS
+            previous.innerHTML = PROJECTS;
             break;
         default:
             previous.innerHTML += `bash: ${command}: command not found`
+            commandsDiv.scrollTop = commandsDiv.scrollHeight
             break;
     }
+
     if (command != 'clear') {
         previous.innerHTML += '<br>'
     }
